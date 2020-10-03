@@ -4,13 +4,30 @@ import java.util.Locale;
 import java.util.Scanner;
 
 import entities.Bissecao;
+import entities.NewtonRaphson;
 
 public class Program {
 
 	public static void main(String[] args) {
 		Locale.setDefault(Locale.US);
 		Scanner sc = new Scanner(System.in);
-		
+		NewtonRaphson op = new NewtonRaphson();
+		double xk;
+		while (true) {
+			System.out.print("Informe um ponto -> ");
+			xk = sc.nextDouble();
+			if (op.f(xk) * op.f2(xk) > 0.0) {
+				op.setXk(xk);
+				System.out.printf("f(xk) * f2(xk) = %.5f\n\n", op.f(xk) * op.f2(xk));
+				break;
+			}
+			else {
+				System.out.println("Ponto inválido");
+			}
+		}
+		System.out.println("Gera método\n");
+		op.geraMetodo(xk);
+		/*
 		Bissecao eq = new Bissecao();
 		
 		while (true) {
@@ -32,7 +49,7 @@ public class Program {
 		
 		System.out.println("\nFim da entrada de dados");
 		
-		eq.resolverMetodo();
+		eq.resolverMetodo();*/
 		sc.close();
 
 	}
