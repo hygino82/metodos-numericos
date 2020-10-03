@@ -13,7 +13,7 @@ public class Bissecao {
 		this.b = b;
 	}
 
-	private double f(double x) {
+	public double f(double x) {
 		return Math.exp(x) + x - 2;
 		//aqui vai a função que iremos achar as raízes;		
 	}
@@ -55,16 +55,18 @@ public class Bissecao {
 		System.out.println("k   a\t f(a)\t b\t f(b)\t xm\t f(xm)\t |a - b|\n");
 		while (true) {
 			xm = (xa + xb) / 2.0;
+			System.out.printf("%d  %.5f  %.5f  %.5f  %.5f  %.5f  %.5f  %5f\n", k, xa, f(xa), xb, f(xb), xm, f(xm), Math.abs(xa - xb));
+			if (Math.abs(xa - xb) < 0.01) {
+				break;
+			}
+			
 			if (f(xm) * f(a) < 0) {
 				xb = xm;
 			}
 			else {
 				xa = xm;
 			}
-			System.out.printf("%d  %.5f  %.5f  %.5f  %.5f  %.5f  %.5f  %5f\n", k, xa, f(xa), xb, f(xb), xm, f(xm), Math.abs(xa - xb));
-			if (Math.abs(xa - xb) <= 0.001) {
-				break;
-			}
+			
 			k++;
 			
 		}

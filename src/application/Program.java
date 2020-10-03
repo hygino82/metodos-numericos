@@ -23,12 +23,15 @@ public class Program {
 			else {
 				eq.setA(a);
 				eq.setB(b);
+				System.out.printf("f(%.5f) = %.5f\n", a, eq.f(a));
+				System.out.printf("f(%.5f) = %.5f\n", b, eq.f(b));
 				break;
 			}
 			
 		}
 		
 		System.out.println("\nFim da entrada de dados");
+		
 		eq.resolverMetodo();
 		sc.close();
 
